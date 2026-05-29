@@ -2,11 +2,11 @@
   "uuid": "720431fa-712e-4b1b-867b-ac0d2837ff46",
   "learningperiod": 4,
   "status": "red",
-  "crawled_at": "2026-05-29T08:20:39.186810+00:00",
+  "crawled_at": "2026-05-29T12:00:56.573674+00:00",
   "repo_activity": {
-    "accessible": false,
-    "last_commit_at": null,
-    "commits_last_7_days": 0
+    "accessible": true,
+    "last_commit_at": "2026-05-22T15:09:51+00:00",
+    "commits_last_7_days": 1
   },
   "document_compliance": {
     "file_found": false,
