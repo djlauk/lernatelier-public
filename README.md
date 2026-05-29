@@ -31,10 +31,12 @@ Manuelles Editieren ist nicht nötig.
 ```
 uv venv    # oder: python -m venv create .venv
 .venv/scripts/activate
+
+cd htdocs
 python -m http.server 8001
 ```
 Dann läuft der Webserver lokal und ist erreichbar unter: http://localhost:8001/student.html
 
 ## GitHub Pages einrichten
 
-Settings → Pages → Source: Deploy from branch `main`, folder `/` (root)
+Settings → Pages → Source: Deploy from branch `main`, folder `/htdocs` (root)
