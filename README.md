@@ -26,6 +26,15 @@ students/
 Wird automatisch durch den GitHub Action in `lernatelier-mgmt` befüllt.
 Manuelles Editieren ist nicht nötig.
 
+## Lokales Ausprobieren
+
+```
+uv venv    # oder: python -m venv create .venv
+.venv/scripts/activate
+python -m http.server 8001
+```
+Dann läuft der Webserver lokal und ist erreichbar unter: http://localhost:8001/student.html
+
 ## GitHub Pages einrichten
 
 Settings → Pages → Source: Deploy from branch `main`, folder `/` (root)
