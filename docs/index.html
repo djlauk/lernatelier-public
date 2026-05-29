@@ -16,8 +16,39 @@
     <p class="text-sm text-gray-500">
       Bitte wenden Sie sich an Ihre Lehrperson, um einen persönlichen Link zu erhalten.
     </p>
+  
+    <div class="mt-16 text-sm text-gray-500 flex">
+      <input id="uuid" class="p-1 flex-grow border border-gray-200 rounded-lg" type="text" placeholder="UUID" maxlength="36" v-model="uuid">
+      <button :disabled="!canGoToUuid" class="ml-2 py-2 px-4 bg-green-500 border border-green-600 rounded-lg text-white" :class="!canGoToUuid && 'bg-gray-300 border-gray-400'" @click="goToUuid">Go</button>
+    </div>
+    <p v-if="errorMsg" class="text-red-600 text-xs mt-2">
+      {{ errorMsg }}
+    </p>
   </div>
 
 </div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script>
+const { createApp, ref, computed } = Vue
+
+
+createApp({
+  setup() {
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+
+    const uuid = ref("");
+    const errorMsg = computed(() => uuid.value.length > 0 && !uuidRegex.test(uuid.value) ? 'UUID ungültig' : '');
+    const canGoToUuid = computed(() => uuid.value.length > 0 && uuidRegex.test(uuid.value));
+
+    function goToUuid(event) {
+      window.open(`./student.html?uuid=${uuid.value}`, "_blank");
+    }
+
+    return {
+      canGoToUuid, errorMsg, goToUuid, uuid
+    }
+  }
+}).mount('#app')
+</script>
 </body>
 </html>
