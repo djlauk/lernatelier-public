@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lernatelier – Lernenden-Status</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+<div id="app" class="w-full max-w-lg">
+
+  <!-- Laden -->
+  <div v-if="loading" class="text-center py-20 text-gray-400 text-sm">Lade…</div>
+
+  <!-- Nicht gefunden -->
+  <div v-else-if="notFound"
+    class="bg-white rounded-2xl border border-gray-200 shadow-sm p-10 text-center">
+    <div class="text-5xl mb-4">🔍</div>
+    <h2 class="font-semibold text-gray-800 mb-2">Keine Daten gefunden</h2>
+    <p class="text-sm text-gray-500">
+      Ihr persönlicher Link ist möglicherweise veraltet oder fehlerhaft.<br>
+      Bitte wenden Sie sich an Ihre Lehrperson.
+    </p>
+  </div>
+
+  <!-- Fehler -->
+  <div v-else-if="error"
+    class="bg-red-50 border border-red-200 rounded-2xl p-6 text-sm text-red-700">
+    {{ error }}
+  </div>
+
+  <!-- Daten -->
+  <div v-else class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+
+    <!-- Status-Header -->
+    <div :class="['px-8 py-8 text-center border-b',
+      d.status === 'green'  ? 'bg-green-50  border-green-100'  :
+      d.status === 'yellow' ? 'bg-yellow-50 border-yellow-100' :
+                              'bg-red-50    border-red-100']">
+      <div class="text-5xl mb-3">{{ statusEmoji }}</div>
+      <h1 :class="['text-xl font-semibold',
+        d.status === 'green'  ? 'text-green-800'  :
+        d.status === 'yellow' ? 'text-yellow-800' : 'text-red-800']">
+        {{ statusLabel }}
+      </h1>
+      <p class="text-sm text-gray-500 mt-1">Lernperiode {{ d.lernperiode }}</p>
+    </div>
+
+    <div class="p-6 space-y-6">
+
+      <!-- Compliance: gut / fehlt -->
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+            Was läuft gut
+          </h2>
+          <ul v-if="goodItems.length > 0" class="space-y-2">
+            <li v-for="item in goodItems" :key="item"
+              class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-green-500 mt-0.5 flex-shrink-0 font-bold">✓</span>
+              {{ item }}
+            </li>
+          </ul>
+          <p v-else class="text-sm text-gray-400 italic">Noch nichts abgeliefert</p>
+        </div>
+        <div>
+          <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+            Was fehlt noch
+          </h2>
+          <ul v-if="missingItems.length > 0" class="space-y-2">
+            <li v-for="item in missingItems" :key="item"
+              class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+              {{ item }}
+            </li>
+          </ul>
+          <p v-else class="text-sm text-green-600 italic font-medium">
+            Alles vollständig 🎉
+          </p>
+        </div>
+      </div>
+
+      <!-- Repository-Aktivität -->
+      <div class="bg-gray-50 rounded-xl p-4">
+        <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
+          Repository-Aktivität
+        </h2>
+        <div v-if="d.repo_activity.accessible" class="flex flex-wrap gap-6 text-sm text-gray-600">
+          <span>
+            Letzter Commit:
+            <span class="font-medium text-gray-800">{{ relativeDate(d.repo_activity.last_commit_at) }}</span>
+          </span>
+          <span>
+            Diese Woche:
+            <span class="font-medium text-gray-800">{{ d.repo_activity.commits_last_7_days }} Commits</span>
+          </span>
+        </div>
+        <div v-else class="text-sm text-red-600">
+          Dein Repository ist für die Lehrperson nicht erreichbar.
+          Bitte stelle sicher, dass der Lesezugriff korrekt eingerichtet ist.
+        </div>
+      </div>
+
+      <!-- History -->
+      <div v-if="groupedHistory.length > 0">
+        <button @click="historyOpen = !historyOpen"
+          class="flex items-center justify-between w-full text-xs font-semibold text-gray-400 uppercase tracking-wide py-1">
+          <span>Frühere Lernperioden</span>
+          <span class="text-gray-300">{{ historyOpen ? '▲' : '▼' }}</span>
+        </button>
+        <div v-if="historyOpen" class="mt-3 divide-y divide-gray-100">
+          <div v-for="h in groupedHistory" :key="h.lernperiode"
+            class="flex items-center justify-between py-2.5 text-sm">
+            <span class="text-gray-500">Lernperiode {{ h.lernperiode }}</span>
+            <span :class="['inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium',
+              h.status === 'green'  ? 'bg-green-100 text-green-700'  :
+              h.status === 'yellow' ? 'bg-yellow-100 text-yellow-700' :
+                                      'bg-red-100 text-red-700']">
+              <span :class="['w-1.5 h-1.5 rounded-full',
+                h.status === 'green'  ? 'bg-green-500'  :
+                h.status === 'yellow' ? 'bg-yellow-400' : 'bg-red-500']"></span>
+              {{ { green:'In Ordnung', yellow:'Unklar', red:'Handlungsbedarf' }[h.status] }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="px-6 py-3 bg-gray-50 border-t border-gray-100 flex justify-between items-center">
+      <span class="text-xs text-gray-400">
+        Aktualisiert: {{ formatDate(d.crawled_at) }}
+      </span>
+      <span class="text-xs text-gray-300 font-mono" :title="d.uuid">
+        {{ d.uuid.slice(0, 8) }}…
+      </span>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script>
+const { createApp, ref, computed, onMounted } = Vue
+
+createApp({
+  setup() {
+    const loading     = ref(true)
+    const error       = ref(null)
+    const notFound    = ref(false)
+    const d           = ref(null)
+    const historyOpen = ref(false)
+
+    const statusEmoji = computed(() =>
+      ({ green: '✅', yellow: '⚠️', red: '❌' })[d.value?.status] ?? '❓'
+    )
+    const statusLabel = computed(() => ({
+      green:  'Alles in Ordnung',
+      yellow: 'Fast vollständig – schau nochmal rein',
+      red:    'Handlungsbedarf',
+    })[d.value?.status] ?? '')
+
+    const allItems = computed(() => {
+      if (!d.value) return []
+      const c = d.value.document_compliance
+      return [
+        { label: 'Planungsdatei vorhanden',              ok: c.file_found },
+        { label: 'Name ausgefüllt',                      ok: c.name_filled },
+        { label: 'Zeitraum gesetzt',                     ok: c.zeitraum_present },
+        { label: 'Grobplanung: Noten',                   ok: c.grobplanung_noten },
+        { label: 'Grobplanung: Veränderungen',           ok: c.grobplanung_veraenderungen },
+        { label: 'Grobplanung: Projekte',                ok: c.grobplanung_projekte },
+        { label: 'Grobplanung: Ziele',                   ok: c.grobplanung_ziele },
+        { label: `Tageseinträge (${c.daily_entries_count})`,
+                                                         ok: c.daily_entries_count > 0 },
+        { label: `Planungseinträge (${c.planning_entries_count})`,
+                                                         ok: c.planning_entries_count > 0 },
+        { label: 'Reflexion geschrieben',                ok: c.reflexion_present },
+      ]
+    })
+
+    const goodItems    = computed(() => allItems.value.filter(i => i.ok).map(i => i.label))
+    const missingItems = computed(() => allItems.value.filter(i => !i.ok).map(i => i.label))
+
+    const groupedHistory = computed(() => {
+      if (!d.value?.history) return []
+      const seen = new Map()
+      for (const h of d.value.history) {
+        if (!seen.has(h.lernperiode)) seen.set(h.lernperiode, h)
+      }
+      return [...seen.values()].sort((a, b) => b.lernperiode - a.lernperiode)
+    })
+
+    function relativeDate(iso) {
+      if (!iso) return '—'
+      const days = Math.floor((Date.now() - new Date(iso)) / 86400000)
+      if (days === 0) return 'heute'
+      if (days === 1) return 'gestern'
+      if (days < 7)  return `vor ${days} Tagen`
+      if (days < 14) return 'vor 1 Woche'
+      return `vor ${Math.floor(days / 7)} Wochen`
+    }
+
+    function formatDate(iso) {
+      if (!iso) return ''
+      return new Date(iso).toLocaleDateString('de-CH',
+        { day: 'numeric', month: 'long', year: 'numeric' })
+    }
+
+    onMounted(async () => {
+      const uuid = new URLSearchParams(window.location.search).get('uuid')
+      if (!uuid) { notFound.value = true; loading.value = false; return }
+      try {
+        const r = await fetch(`students/${uuid}.json`)
+        if (r.status === 404) { notFound.value = true; return }
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        d.value = await r.json()
+      } catch (e) {
+        error.value = `Fehler beim Laden: ${e.message}`
+      } finally {
+        loading.value = false
+      }
+    })
+
+    return {
+      loading, error, notFound, d, historyOpen,
+      statusEmoji, statusLabel, goodItems, missingItems,
+      groupedHistory, relativeDate, formatDate,
+    }
+  }
+}).mount('#app')
+</script>
+</body>
+</html>

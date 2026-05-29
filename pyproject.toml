@@ -1,0 +1,7 @@
+[project]
+name = "lernatelier-public"
+version = "0.1.0"
+description = "Student compliance dashboard for Informatik Lernatelier"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
