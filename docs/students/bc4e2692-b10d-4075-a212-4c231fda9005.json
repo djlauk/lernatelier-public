@@ -2,10 +2,10 @@
   "uuid": "bc4e2692-b10d-4075-a212-4c231fda9005",
   "learningperiod": 4,
   "status": "green",
-  "crawled_at": "2026-05-29T12:35:00.871496+00:00",
+  "crawled_at": "2026-05-30T05:11:30.764232+00:00",
   "repo_activity": {
     "accessible": true,
-    "last_commit_at": "2026-05-29T12:19:32+00:00",
+    "last_commit_at": "2026-05-29T15:20:23+00:00",
     "commits_last_7_days": 2
   },
   "document_compliance": {
@@ -16,13 +16,40 @@
     "overview_changes": true,
     "overview_projects": true,
     "overview_goals": true,
-    "daily_entries_count": 3,
-    "planning_entries_count": 3,
+    "daily_entries_count": 4,
+    "planning_entries_count": 4,
     "reflexion_present": true,
     "checkbox_stats": {
-      "total": 15,
-      "checked": 8
+      "total": 13,
+      "checked": 10
     }
   },
-  "history": []
+  "history": [
+    {
+      "date": "2026-05-29T12:35:00.871496+00:00",
+      "learningperiod": 4,
+      "status": "green",
+      "repo_activity": {
+        "accessible": true,
+        "last_commit_at": "2026-05-29T12:19:32+00:00",
+        "commits_last_7_days": 2
+      },
+      "document_compliance": {
+        "file_found": true,
+        "name_filled": true,
+        "zeitraum_present": true,
+        "overview_grades": true,
+        "overview_changes": true,
+        "overview_projects": true,
+        "overview_goals": true,
+        "daily_entries_count": 3,
+        "planning_entries_count": 3,
+        "reflexion_present": true,
+        "checkbox_stats": {
+          "total": 15,
+          "checked": 8
+        }
+      }
+    }
+  ]
 }
