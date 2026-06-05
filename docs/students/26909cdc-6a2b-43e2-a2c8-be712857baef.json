@@ -2,7 +2,7 @@
   "uuid": "26909cdc-6a2b-43e2-a2c8-be712857baef",
   "learningperiod": 4,
   "status": "yellow",
-  "crawled_at": "2026-06-05T06:22:00.147931+00:00",
+  "crawled_at": "2026-06-05T06:28:16.830853+00:00",
   "repo_activity": {
     "accessible": true,
     "last_commit_at": "2026-05-29T15:16:40+00:00",
@@ -10,7 +10,7 @@
   },
   "document_compliance": {
     "file_found": true,
-    "name_filled": true,
+    "name_filled": false,
     "zeitraum_present": false,
     "overview_grades": true,
     "overview_changes": true,
