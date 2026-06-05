@@ -1,8 +1,8 @@
 {
   "uuid": "197db36d-eb77-46bf-ad69-0468ea27db30",
   "learningperiod": 4,
-  "status": "yellow",
-  "crawled_at": "2026-06-05T06:59:06.883559+00:00",
+  "status": "green",
+  "crawled_at": "2026-06-05T07:20:37.034339+00:00",
   "repo_activity": {
     "accessible": true,
     "last_commit_at": "2026-06-05T06:26:44+00:00",
@@ -16,8 +16,8 @@
     "overview_changes": true,
     "overview_projects": true,
     "overview_goals": true,
-    "daily_entries_count": 0,
-    "planning_entries_count": 5,
+    "daily_entries_count": 5,
+    "planning_entries_count": 0,
     "reflexion_present": false,
     "checkbox_stats": {
       "total": 12,
