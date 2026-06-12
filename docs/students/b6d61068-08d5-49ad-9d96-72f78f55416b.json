@@ -2,15 +2,15 @@
   "uuid": "b6d61068-08d5-49ad-9d96-72f78f55416b",
   "learningperiod": 4,
   "status": "yellow",
-  "crawled_at": "2026-06-12T05:55:47.240339+00:00",
+  "crawled_at": "2026-06-12T21:42:47.818685+00:00",
   "repo_activity": {
     "accessible": true,
-    "last_commit_at": "2026-06-12T05:53:05+00:00",
-    "commits_last_7_days": 2
+    "last_commit_at": "2026-06-12T07:28:12+00:00",
+    "commits_last_7_days": 3
   },
   "document_compliance": {
     "file_found": true,
-    "name_filled": false,
+    "name_filled": true,
     "zeitraum_present": false,
     "overview_grades": false,
     "overview_changes": false,

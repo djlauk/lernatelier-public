@@ -1,27 +1,27 @@
 {
   "uuid": "44d34927-b4d4-46f6-93be-7eccbcef1dd9",
   "learningperiod": 4,
-  "status": "yellow",
-  "crawled_at": "2026-06-12T05:55:47.240339+00:00",
+  "status": "green",
+  "crawled_at": "2026-06-12T21:42:47.818685+00:00",
   "repo_activity": {
     "accessible": true,
-    "last_commit_at": "2026-06-05T15:24:02+00:00",
+    "last_commit_at": "2026-06-12T15:27:11+00:00",
     "commits_last_7_days": 3
   },
   "document_compliance": {
     "file_found": true,
-    "name_filled": false,
+    "name_filled": true,
     "zeitraum_present": true,
     "overview_grades": true,
     "overview_changes": true,
     "overview_projects": true,
     "overview_goals": true,
-    "daily_entries_count": 3,
+    "daily_entries_count": 4,
     "planning_entries_count": 0,
     "reflexion_present": false,
     "checkbox_stats": {
-      "total": 9,
-      "checked": 8
+      "total": 11,
+      "checked": 10
     }
   },
   "history": [
