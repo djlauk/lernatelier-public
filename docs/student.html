@@ -165,7 +165,7 @@ createApp({
     const allItems = computed(() => {
       if (!d.value) return []
       const c = d.value.document_compliance
-      return [
+      const items = [
         { label: 'Planungsdatei vorhanden',              ok: c.file_found },
         { label: 'Name ausgefüllt',                      ok: c.name_filled },
         { label: 'Zeitraum gesetzt',                     ok: c.zeitraum_present },
@@ -173,12 +173,12 @@ createApp({
         { label: 'Grobplanung: Veränderungen',           ok: c.overview_changes },
         { label: 'Grobplanung: Projekte',                ok: c.overview_projects },
         { label: 'Grobplanung: Ziele',                   ok: c.overview_goals },
-        { label: `Tageseinträge (${c.daily_entries_count})`,
-                                                         ok: c.daily_entries_count > 0 },
-        // { label: `Planungseinträge (${c.planning_entries_count})`,
-        //                                                  ok: c.planning_entries_count > 0 },
         // { label: 'Reflexion geschrieben',                ok: c.reflexion_present },
       ]
+      if (c.days_ok != null)
+        items.push({ label: `Tage vollständig (${c.days_ok}/${c.days_total})`,
+                     ok: c.days_ok === c.days_total })
+      return items
     })
 
     const goodItems    = computed(() => allItems.value.filter(i => i.ok).map(i => i.label))
