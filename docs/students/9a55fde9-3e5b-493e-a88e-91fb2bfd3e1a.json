@@ -2,7 +2,7 @@
   "uuid": "9a55fde9-3e5b-493e-a88e-91fb2bfd3e1a",
   "learningperiod": 4,
   "status": "yellow",
-  "crawled_at": "2026-06-14T12:23:14.030501+00:00",
+  "crawled_at": "2026-06-16T22:44:57.525245+00:00",
   "repo_activity": {
     "accessible": true,
     "last_commit_at": "2026-06-12T15:11:30+00:00",
@@ -16,12 +16,39 @@
     "overview_changes": false,
     "overview_projects": false,
     "overview_goals": false,
-    "daily_entries_count": 0,
-    "planning_entries_count": 0,
+    "daily_entries_count": 6,
     "reflexion_present": false,
-    "checkbox_stats": null
+    "checkbox_stats": null,
+    "days_ok": 0,
+    "days_total": 6,
+    "next_day_planned": false
   },
+  "reflection_due": "2026-06-26",
   "history": [
+    {
+      "date": "2026-06-14T12:23:14.030501+00:00",
+      "learningperiod": 4,
+      "status": "yellow",
+      "repo_activity": {
+        "accessible": true,
+        "last_commit_at": "2026-06-12T15:11:30+00:00",
+        "commits_last_7_days": 1
+      },
+      "document_compliance": {
+        "file_found": true,
+        "name_filled": true,
+        "zeitraum_present": false,
+        "overview_grades": false,
+        "overview_changes": false,
+        "overview_projects": false,
+        "overview_goals": false,
+        "daily_entries_count": 0,
+        "planning_entries_count": 0,
+        "reflexion_present": false,
+        "checkbox_stats": null
+      },
+      "reflection_due": null
+    },
     {
       "date": "2026-06-13T23:02:59.292960+00:00",
       "learningperiod": 4,
@@ -43,7 +70,8 @@
         "planning_entries_count": 0,
         "reflexion_present": false,
         "checkbox_stats": null
-      }
+      },
+      "reflection_due": null
     },
     {
       "date": "2026-06-12T23:15:57.824973+00:00",
@@ -66,7 +94,8 @@
         "planning_entries_count": 0,
         "reflexion_present": false,
         "checkbox_stats": null
-      }
+      },
+      "reflection_due": null
     },
     {
       "date": "2026-06-06T05:29:17.504830+00:00",
@@ -89,7 +118,8 @@
         "planning_entries_count": 0,
         "reflexion_present": false,
         "checkbox_stats": null
-      }
+      },
+      "reflection_due": null
     },
     {
       "date": "2026-06-05T14:24:46.509766+00:00",
@@ -112,7 +142,8 @@
         "planning_entries_count": 0,
         "reflexion_present": false,
         "checkbox_stats": null
-      }
+      },
+      "reflection_due": null
     },
     {
       "date": "2026-05-30T05:11:30.764232+00:00",
@@ -135,7 +166,8 @@
         "planning_entries_count": 0,
         "reflexion_present": false,
         "checkbox_stats": null
-      }
+      },
+      "reflection_due": null
     },
     {
       "date": "2026-05-29T12:35:00.871496+00:00",
@@ -158,7 +190,8 @@
         "planning_entries_count": 0,
         "reflexion_present": false,
         "checkbox_stats": null
-      }
+      },
+      "reflection_due": null
     }
   ]
 }
