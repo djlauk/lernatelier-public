@@ -189,6 +189,8 @@ createApp({
       if (c.days_ok != null)
         items.push({ label: `Tage vollständig (${c.days_ok}/${c.days_total})`,
                      ok: c.days_ok === c.days_total })
+      if (c.next_day_planned != null)
+        items.push({ label: 'Nächster Kurstag geplant', ok: c.next_day_planned })
       items.push({
         label: reflexionPending
           ? `Reflexion (fällig ${formatShortDate(reflexionDue)})`
