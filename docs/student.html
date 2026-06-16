@@ -81,6 +81,15 @@
         </div>
       </div>
 
+      <!-- Noch ausstehend -->
+      <ul v-if="pendingItems.length > 0" class="space-y-2">
+        <li v-for="item in pendingItems" :key="item"
+          class="flex items-start gap-2 text-sm text-gray-400 italic">
+          <span class="mt-0.5 flex-shrink-0">○</span>
+          {{ item }}
+        </li>
+      </ul>
+
       <!-- Repository-Aktivität -->
       <div class="bg-gray-50 rounded-xl p-4">
         <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">
@@ -165,6 +174,9 @@ createApp({
     const allItems = computed(() => {
       if (!d.value) return []
       const c = d.value.document_compliance
+      const today = new Date().toISOString().slice(0, 10)
+      const reflexionDue = d.value.reflection_due
+      const reflexionPending = reflexionDue != null && today < reflexionDue
       const items = [
         { label: 'Planungsdatei vorhanden',              ok: c.file_found },
         { label: 'Name ausgefüllt',                      ok: c.name_filled },
@@ -173,16 +185,23 @@ createApp({
         { label: 'Grobplanung: Veränderungen',           ok: c.overview_changes },
         { label: 'Grobplanung: Projekte',                ok: c.overview_projects },
         { label: 'Grobplanung: Ziele',                   ok: c.overview_goals },
-        // { label: 'Reflexion geschrieben',                ok: c.reflexion_present },
       ]
       if (c.days_ok != null)
         items.push({ label: `Tage vollständig (${c.days_ok}/${c.days_total})`,
                      ok: c.days_ok === c.days_total })
+      items.push({
+        label: reflexionPending
+          ? `Reflexion (fällig ${formatShortDate(reflexionDue)})`
+          : 'Reflexion geschrieben',
+        ok: c.reflexion_present,
+        pending: reflexionPending,
+      })
       return items
     })
 
-    const goodItems    = computed(() => allItems.value.filter(i => i.ok).map(i => i.label))
-    const missingItems = computed(() => allItems.value.filter(i => !i.ok).map(i => i.label))
+    const goodItems    = computed(() => allItems.value.filter(i => i.ok && !i.pending).map(i => i.label))
+    const missingItems = computed(() => allItems.value.filter(i => !i.ok && !i.pending).map(i => i.label))
+    const pendingItems = computed(() => allItems.value.filter(i => i.pending).map(i => i.label))
 
     const groupedHistory = computed(() => {
       if (!d.value?.history) return []
@@ -192,6 +211,12 @@ createApp({
       }
       return [...seen.values()].sort((a, b) => b.lernperiode - a.lernperiode)
     })
+
+    function formatShortDate(iso) {
+      if (!iso) return ''
+      const [y, m, day] = iso.split('-')
+      return `${parseInt(day)}.${parseInt(m)}.${y}`
+    }
 
     function relativeDate(iso) {
       if (!iso) return '—'
@@ -226,8 +251,8 @@ createApp({
 
     return {
       loading, error, notFound, d, historyOpen,
-      statusEmoji, statusLabel, goodItems, missingItems,
-      groupedHistory, relativeDate, formatDate,
+      statusEmoji, statusLabel, goodItems, missingItems, pendingItems,
+      groupedHistory, relativeDate, formatDate, formatShortDate,
     }
   }
 }).mount('#app')
