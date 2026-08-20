@@ -1,12 +1,12 @@
 {
   "uuid": "26909cdc-6a2b-43e2-a2c8-be712857baef",
-  "learningperiod": 4,
+  "learningperiod": 5,
   "status": "yellow",
-  "crawled_at": "2026-06-25T19:59:57.584454+00:00",
+  "crawled_at": "2026-08-20T22:58:53.465539+00:00",
   "repo_activity": {
     "accessible": true,
-    "last_commit_at": "2026-06-19T15:20:15+00:00",
-    "commits_last_7_days": 2
+    "last_commit_at": "2026-08-14T09:17:35+00:00",
+    "commits_last_7_days": 3
   },
   "document_compliance": {
     "file_found": true,
@@ -16,17 +16,49 @@
     "overview_changes": true,
     "overview_projects": true,
     "overview_goals": true,
-    "daily_entries_count": 0,
+    "daily_entries_count": 8,
     "reflection_present": true,
-    "checkbox_stats": null,
+    "checkbox_stats": {
+      "total": 18,
+      "checked": 6
+    },
     "days_ok": 0,
-    "days_total": 7,
+    "days_absent": 0,
+    "days_total": 1,
     "next_day_planned": false,
-    "reflection_due": "2026-06-26",
+    "reflection_due": "2026-09-25",
     "reflection_pending": true
   },
-  "reflection_due": "2026-06-26",
+  "reflection_due": "2026-09-25",
   "history": [
+    {
+      "date": "2026-06-25T19:59:57.584454+00:00",
+      "learningperiod": 4,
+      "status": "yellow",
+      "repo_activity": {
+        "accessible": true,
+        "last_commit_at": "2026-06-19T15:20:15+00:00",
+        "commits_last_7_days": 2
+      },
+      "document_compliance": {
+        "file_found": true,
+        "name_filled": true,
+        "zeitraum_present": true,
+        "overview_grades": true,
+        "overview_changes": true,
+        "overview_projects": true,
+        "overview_goals": true,
+        "daily_entries_count": 0,
+        "reflection_present": true,
+        "checkbox_stats": null,
+        "days_ok": 0,
+        "days_total": 7,
+        "next_day_planned": false,
+        "reflection_due": "2026-06-26",
+        "reflection_pending": true
+      },
+      "reflection_due": "2026-06-26"
+    },
     {
       "date": "2026-06-20T05:54:32.326438+00:00",
       "learningperiod": 4,

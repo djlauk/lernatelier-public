@@ -1,32 +1,64 @@
 {
   "uuid": "79d19e05-04b6-4a33-9b74-090d6505b50d",
-  "learningperiod": 4,
-  "status": "red",
-  "crawled_at": "2026-06-25T19:59:57.584454+00:00",
+  "learningperiod": 5,
+  "status": "yellow",
+  "crawled_at": "2026-08-20T22:58:53.465539+00:00",
   "repo_activity": {
     "accessible": true,
-    "last_commit_at": "2026-06-19T07:17:57+00:00",
-    "commits_last_7_days": 8
+    "last_commit_at": "2026-08-14T13:24:22+00:00",
+    "commits_last_7_days": 4
   },
   "document_compliance": {
-    "file_found": false,
-    "name_filled": false,
-    "zeitraum_present": false,
-    "overview_grades": false,
-    "overview_changes": false,
-    "overview_projects": false,
-    "overview_goals": false,
-    "daily_entries_count": 0,
-    "reflection_present": false,
-    "checkbox_stats": null,
-    "days_ok": null,
-    "days_total": null,
-    "next_day_planned": null,
-    "reflection_due": null,
-    "reflection_pending": null
+    "file_found": true,
+    "name_filled": true,
+    "zeitraum_present": true,
+    "overview_grades": true,
+    "overview_changes": true,
+    "overview_projects": true,
+    "overview_goals": true,
+    "daily_entries_count": 1,
+    "reflection_present": true,
+    "checkbox_stats": {
+      "total": 4,
+      "checked": 3
+    },
+    "days_ok": 1,
+    "days_absent": 0,
+    "days_total": 1,
+    "next_day_planned": false,
+    "reflection_due": "2026-09-25",
+    "reflection_pending": true
   },
-  "reflection_due": null,
+  "reflection_due": "2026-09-25",
   "history": [
+    {
+      "date": "2026-06-25T19:59:57.584454+00:00",
+      "learningperiod": 4,
+      "status": "red",
+      "repo_activity": {
+        "accessible": true,
+        "last_commit_at": "2026-06-19T07:17:57+00:00",
+        "commits_last_7_days": 8
+      },
+      "document_compliance": {
+        "file_found": false,
+        "name_filled": false,
+        "zeitraum_present": false,
+        "overview_grades": false,
+        "overview_changes": false,
+        "overview_projects": false,
+        "overview_goals": false,
+        "daily_entries_count": 0,
+        "reflection_present": false,
+        "checkbox_stats": null,
+        "days_ok": null,
+        "days_total": null,
+        "next_day_planned": null,
+        "reflection_due": null,
+        "reflection_pending": null
+      },
+      "reflection_due": null
+    },
     {
       "date": "2026-06-20T05:54:32.326438+00:00",
       "learningperiod": 4,
