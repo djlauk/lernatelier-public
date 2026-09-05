@@ -2,7 +2,7 @@
   "uuid": "b8beaa83-32c1-49e4-85fa-c86157910fc5",
   "learningperiod": 5,
   "status": "red",
-  "crawled_at": "2026-08-29T08:08:01.839677+00:00",
+  "crawled_at": "2026-09-05T06:07:01.642086+00:00",
   "repo_activity": {
     "accessible": false,
     "last_commit_at": null,
@@ -28,6 +28,35 @@
   },
   "reflection_due": null,
   "history": [
+    {
+      "date": "2026-08-29T08:08:01.839677+00:00",
+      "learningperiod": 5,
+      "status": "red",
+      "repo_activity": {
+        "accessible": false,
+        "last_commit_at": null,
+        "commits_last_7_days": 0
+      },
+      "document_compliance": {
+        "file_found": false,
+        "name_filled": false,
+        "zeitraum_present": false,
+        "overview_grades": false,
+        "overview_changes": false,
+        "overview_projects": false,
+        "overview_goals": false,
+        "daily_entries_count": 0,
+        "reflection_present": false,
+        "checkbox_stats": null,
+        "days_ok": null,
+        "days_absent": null,
+        "days_total": null,
+        "next_day_planned": null,
+        "reflection_due": null,
+        "reflection_pending": null
+      },
+      "reflection_due": null
+    },
     {
       "date": "2026-08-22T02:35:10.687412+00:00",
       "learningperiod": 5,

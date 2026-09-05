@@ -2,10 +2,10 @@
   "uuid": "b653c9c9-7c76-4187-bd7b-0df23132b60c",
   "learningperiod": 5,
   "status": "green",
-  "crawled_at": "2026-08-29T08:08:01.839677+00:00",
+  "crawled_at": "2026-09-05T06:07:01.642086+00:00",
   "repo_activity": {
     "accessible": true,
-    "last_commit_at": "2026-08-28T09:12:41+00:00",
+    "last_commit_at": "2026-09-04T09:04:43+00:00",
     "commits_last_7_days": 1
   },
   "document_compliance": {
@@ -19,18 +19,50 @@
     "daily_entries_count": 7,
     "reflection_present": false,
     "checkbox_stats": {
-      "total": 18,
-      "checked": 9
+      "total": 19,
+      "checked": 11
     },
-    "days_ok": 3,
+    "days_ok": 4,
     "days_absent": 0,
-    "days_total": 3,
+    "days_total": 4,
     "next_day_planned": true,
     "reflection_due": "2026-09-25",
     "reflection_pending": true
   },
   "reflection_due": "2026-09-25",
   "history": [
+    {
+      "date": "2026-08-29T08:08:01.839677+00:00",
+      "learningperiod": 5,
+      "status": "green",
+      "repo_activity": {
+        "accessible": true,
+        "last_commit_at": "2026-08-28T09:12:41+00:00",
+        "commits_last_7_days": 1
+      },
+      "document_compliance": {
+        "file_found": true,
+        "name_filled": true,
+        "zeitraum_present": true,
+        "overview_grades": true,
+        "overview_changes": true,
+        "overview_projects": true,
+        "overview_goals": true,
+        "daily_entries_count": 7,
+        "reflection_present": false,
+        "checkbox_stats": {
+          "total": 18,
+          "checked": 9
+        },
+        "days_ok": 3,
+        "days_absent": 0,
+        "days_total": 3,
+        "next_day_planned": true,
+        "reflection_due": "2026-09-25",
+        "reflection_pending": true
+      },
+      "reflection_due": "2026-09-25"
+    },
     {
       "date": "2026-08-22T02:35:10.687412+00:00",
       "learningperiod": 5,
