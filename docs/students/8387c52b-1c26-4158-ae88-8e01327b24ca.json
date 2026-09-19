@@ -1,12 +1,12 @@
 {
   "uuid": "8387c52b-1c26-4158-ae88-8e01327b24ca",
   "learningperiod": 5,
-  "status": "yellow",
-  "crawled_at": "2026-09-12T06:12:51.549312+00:00",
+  "status": "green",
+  "crawled_at": "2026-09-19T06:20:05.880781+00:00",
   "repo_activity": {
     "accessible": true,
-    "last_commit_at": "2026-09-11T13:30:24+00:00",
-    "commits_last_7_days": 1
+    "last_commit_at": "2026-09-18T14:58:05+00:00",
+    "commits_last_7_days": 4
   },
   "document_compliance": {
     "file_found": true,
@@ -16,21 +16,53 @@
     "overview_changes": true,
     "overview_projects": true,
     "overview_goals": true,
-    "daily_entries_count": 5,
+    "daily_entries_count": 7,
     "reflection_present": true,
     "checkbox_stats": {
-      "total": 20,
-      "checked": 16
+      "total": 27,
+      "checked": 19
     },
-    "days_ok": 4,
+    "days_ok": 6,
     "days_absent": 0,
-    "days_total": 5,
-    "next_day_planned": false,
+    "days_total": 6,
+    "next_day_planned": true,
     "reflection_due": "2026-09-25",
     "reflection_pending": true
   },
   "reflection_due": "2026-09-25",
   "history": [
+    {
+      "date": "2026-09-12T06:12:51.549312+00:00",
+      "learningperiod": 5,
+      "status": "yellow",
+      "repo_activity": {
+        "accessible": true,
+        "last_commit_at": "2026-09-11T13:30:24+00:00",
+        "commits_last_7_days": 1
+      },
+      "document_compliance": {
+        "file_found": true,
+        "name_filled": true,
+        "zeitraum_present": true,
+        "overview_grades": true,
+        "overview_changes": true,
+        "overview_projects": true,
+        "overview_goals": true,
+        "daily_entries_count": 5,
+        "reflection_present": true,
+        "checkbox_stats": {
+          "total": 20,
+          "checked": 16
+        },
+        "days_ok": 4,
+        "days_absent": 0,
+        "days_total": 5,
+        "next_day_planned": false,
+        "reflection_due": "2026-09-25",
+        "reflection_pending": true
+      },
+      "reflection_due": "2026-09-25"
+    },
     {
       "date": "2026-09-05T06:07:01.642086+00:00",
       "learningperiod": 5,
