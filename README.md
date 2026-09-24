@@ -16,14 +16,15 @@ Der Link wird einmalig per E-Mail zugestellt.
 ## Inhalt
 
 ```
-student.html          Einzelne Seite für alle Lernenden (UUID via ?uuid=)
-students/
-  {uuid}.json         Anonymisierte Statusdaten je Lernende:r
+docs/
+  student.html        Einzelne Seite für alle Lernenden (UUID via ?uuid=)
+  students/
+    {uuid}.json       Anonymisierte Statusdaten je Lernende:r
 ```
 
 ## Deployment
 
-Wird automatisch durch den GitHub Action in `lernatelier-mgmt` befüllt.
+`docs/students/` wird automatisch durch die GitHub Action in `lernatelier-mgmt` befüllt.
 Manuelles Editieren ist nicht nötig.
 
 ## Lokales Ausprobieren
@@ -32,11 +33,11 @@ Manuelles Editieren ist nicht nötig.
 uv venv    # oder: python -m venv create .venv
 .venv/scripts/activate
 
-cd htdocs
+cd docs
 python -m http.server 8001
 ```
 Dann läuft der Webserver lokal und ist erreichbar unter: http://localhost:8001/student.html
 
 ## GitHub Pages einrichten
 
-Settings → Pages → Source: Deploy from branch `main`, folder `/htdocs` (root)
+Settings → Pages → Source: Deploy from a branch → Branch: `main`, folder `/docs`
